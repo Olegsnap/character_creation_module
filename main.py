@@ -1,3 +1,4 @@
+"""Модуль игры. Ввод имени персонажа выбор класса и тренировка."""
 from random import randint
 
 DEFAULT_ATTACK = 5
@@ -26,7 +27,7 @@ class Character:
     def special(self):
         return (f'{self.name} применил специальное умение '
                 f'"{self.SPECIAL_SKILL} {self.SPECIAL_BUFF}"')
-   
+
     def __str__(self):
         return f'{self.__class__.__name__} - {self.BRIEF_DESC_CHAR_CLASS}.'
 
@@ -64,7 +65,11 @@ def start_training(character):
     Возвращает сообщения о результатах цикла тренировки персонажа.
     """
     # Замените конструкцию условных операторов на словарь.
-    commands = {'attack': char_class.attack, 'defence': char_class.defence, 'special': char_class.special}
+    commands = {
+        'attack': char_class.attack,
+        'defence': char_class.defence,
+        'special': char_class.special
+    }
     print('Потренируйся управлять своими навыками.')
     print('Введи одну из команд: attack — чтобы атаковать противника, '
           'defence — чтобы блокировать атаку противника или '
